@@ -7,15 +7,39 @@ describe('App', () => {
     page = new Page();
   });
 
-  describe('default screen', () => {
+  describe('tela inicial', () => {
     beforeEach(() => {
       page.navigateTo('/');
     });
 
-    it('should have a title saying Page One', () => {
-      page.getPageOneTitleText().then(title => {
-        expect(title).toEqual('Page One');
+    it('deve possuir todos os elementos', () => {
+      page.hasElements().then(valor => {
+        expect(valor).toBe(true);
       });
     });
+
+    it('deve iniciar exibindo "Alô, Mundo!"', () => {
+      page.getMensagem().then(mensagem => {
+        expect(mensagem).toEqual('Alô, Mundo!');
+      });
+    });
+
+    it('não deve alterar mensagem à medida que digita', () => {
+      page.digitaNome("testando")
+          .then(() => page.getMensagem())
+          .then((mensagem) => {
+            expect(mensagem).toEqual('Alô, Mundo!');
+          });
+    });
+
+    it('deve alterar mensagem ao pressionar botão', () => {
+      page.digitaNome("testando")
+          .then(() => page.cumprimenta())
+          .then(() => page.getMensagem())
+          .then((mensagem) => {
+            expect(mensagem).toEqual('Alô, testando!');
+          });
+    });
+
   })
 });
