@@ -2,6 +2,10 @@
 
 ## Configuração e avaliação
 
+Dependências:
+
+Este repositório foi testado com o Node.js 7.2.1 e o Ionic 4.3.1 (use o comando `npm install -g ionic@4.3.1` para instalar)
+
 Configuração:
 
 - Clone o repositório do projeto
@@ -10,7 +14,7 @@ Configuração:
 
 Avaliação:
 
-- Rode o comando `ionic server` para rodar a aplicação
+- Rode o comando `ionic serve` para rodar a aplicação
 - Rode o comando `npm run e2e` para rodar os testes
 - O resultado dos testes aparece no terminal
 
@@ -40,7 +44,7 @@ Seu app deve consistir de uma única página, `page1`, que deve conter os três 
 - um botão, com id `btnCumprimentar` e texto `Cumprimentar`
 - um rótulo, com id `labelMensagem` e texto inicial "Alô, Mundo!"
 
-(edite a página `Page1` que está na)
+(edite a página `Page1` que está em `src/pages/page1/`)
 
 Comportamento esperado:
 
